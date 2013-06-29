@@ -1,0 +1,111 @@
+/* CSS Document */
+
+*{
+margin:0;
+padding:0;
+}
+
+#main-wrapper{
+	width:823px;
+	height:523px;
+	margin:0 auto;
+	background-color:#4f3e2e;
+	margin-top:20px;
+	}
+	
+#background
+{
+width:790px;
+height:500px;
+float:left;
+margin:12px;
+padding-left:8px;
+background-image:url(../images/bg.jpg);
+}
+#middle
+{
+width:740px;
+float:left;
+margin:20px;
+background-color:#aabab9;
+border-radius:12px;
+}
+
+.middle1
+{
+width:740px;
+height:35px;
+float:left;
+font-family:Geneva, Arial, Helvetica, sans-serif;
+font-size:3em;
+margin:10PX;
+font-weight:bold;
+}
+
+.tab
+{
+width:740px;
+float:left;
+}
+
+
+
+
+
+
+a[data-tooltip]:link, a[data-tooltip]:visited {
+	position: relative;
+	text-decoration: none;
+	
+}
+
+a[data-tooltip]:before {
+content: "";
+position: absolute;
+border-top: 15px solid #665c53;
+border-left: 15px solid transparent;
+border-right: 15px solid transparent;
+visibility: hidden;
+top: -22px;
+left: 46px;
+}
+
+a[data-tooltip]:after {
+ content: attr(data-tooltip);
+position: absolute;
+color: white;
+top: -35px;
+line-height: 10px;
+left: 43px;
+font-size: 15px;
+background: #665c53;
+padding: 5px 15px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+white-space: nowrap;
+visibility: hidden;
+}
+
+a[data-tooltip]:hover:before, a[data-tooltip]:hover:after {
+  visibility: visible;
+  -webkit-transition: visibility 0s linear .3s;
+  -moz-transition: visibility 0s linear .3s;
+  -o-transition: visibility 0s linear .3s;
+  transition: visibility 0s linear .3s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

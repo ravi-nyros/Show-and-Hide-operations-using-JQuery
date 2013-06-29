@@ -1,0 +1,333 @@
+<!doctype html> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>flights information</title>
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript"src="jquery.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$(".tab_content").hide(); //Hide all content
+	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
+	$(".tab_content:first").show(); //Show first tab content
+if($(".tab_content:first").is(':visible')){
+	that=$(".tab_content:first")
+	larg_num(that)
+
+}
+
+function larg_num(that){
+	var val = that.find('tr')
+	var array = [];
+for(i=1;i<=val.length;i++){
+
+var st= that.find('tr:eq('+i+')').find('td:eq(4)').text()
+
+
+if(st.indexOf("$") !== -1){
+
+var st1=st.replace("$","");
+
+array.push(parseInt(st1))
+
+
+}
+else{
+
+var largest = Math.max.apply(Math, array);
+var strt=largest.toString()
+
+
+
+for(j=1;j<=val.length;j++){
+
+var st_1= that.find('tr:eq('+j+')').find('td:eq(4)').text()
+
+if(st_1.indexOf(strt) !== -1){
+that.find('tr:eq('+j+')').find('td:eq(4)').html('<span style="background-color:#f9b3a7; border-radius:10px; padding:5px;">'+st_1+'</span>')
+
+}
+}
+var array = [];
+continue;
+}
+}
+	}
+
+	
+	//On Click Event
+	$("ul.tabs li").click(function() {
+	
+		$("ul.tabs li").removeClass("active"); //Remove any "active" class
+		$(this).addClass("active"); //Add "active" class to selected tab
+		$(".tab_content").hide(); //Hide all tab content
+		var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+		$("#load").show()
+		setTimeout(function(){
+		$("#load").hide()
+		$(activeTab).show()
+		
+		},500);
+		
+		larg_num($(activeTab))
+		 //Fade in the active content
+		return false;
+	});
+ 
+});
+</script>
+
+
+</head>
+
+<body>
+<div id="main-wrapper">
+<div  id="background">
+<div id="middle">
+<div class="middle1">SELECT A FLIGHT</div>
+<div class="tab">
+
+    <ul class="tabs">
+        <li  ><a href="#tab1" data-tooltip="4 Flights">Sep 27
+		
+		</a></li>
+        <li><a href="#tab2" data-tooltip="5 Flights">Sep 28</a></li>
+        <li><a href="#tab3" data-tooltip="3 Flights">Sep 29</a></li>
+        <li><a href="#tab4" data-tooltip="3 Flights">Sep 30</a></li>
+		    <li><a href="#tab5" data-tooltip="4 Flights">Oct 01</a></li>
+		
+
+    </ul>
+    <div class="tab_container">
+	<h1 id="load" style="display:none; color:665c53;">Loading...</h1>
+        <div id="tab1" class="tab_content">
+		
+        <table width="740" border="0" cellspacing="0" cellpadding="0" height="320px;">
+  <tr class="text">
+    <td>DEPART</td>
+    <td>ARRIVE</td>
+    <td>FLIGHT#</td>
+    <td>ROUTING</td>
+    <td>FIRST CLASS</td>
+    <td>COACH</td>
+  </tr>
+  <tr class="text1" bgcolor="e3dbce">
+    <td>2:30 PM</td>
+    <td>5:18 PM</td>
+    <td>347</td>
+    <td>NON STOP</td>
+    <td style="color:#cc1840;">$317</td>
+    <td style="color:#cc1840;">$134</td>
+  </tr>
+  <tr class="text1" >
+    <td>3:15 PM</td>
+    <td>5:08 PM</td>
+    <td>1946</td>
+    <td>2 stops</td>
+    <td style="color:#cc1840; ">$276</span></td>
+    <td style="color:#cc1840;">$205</td>
+  </tr>
+  <tr class="text1" bgcolor="e3dbce">
+    <td>4:45 PM</td>
+    <td>5:22 PM</td>
+    <td>1884</td>
+    <td>1 stop</td>
+    <td style="color:#cc1840;">$353</td>
+    <td style="color:#cc1840;">$249</td>
+  </tr>
+  <tr class="text1" >
+    <td>5:30 PM</td>
+    <td>5:51 PM</td>
+    <td>633</td>
+    <td>Nonstop</td>
+    <td style="color:#cc1840;">$269</td>
+    <td style="color:#cc1840;">$232</td>
+  </tr>
+
+</table>
+
+        </div>
+        <div id="tab2" class="tab_content">
+<table width="740" border="0" cellspacing="0" cellpadding="0" height="360px;">
+  <tr class="text">
+    <td>DEPART</td>
+    <td>ARRIVE</td>
+    <td>FLIGHT#</td>
+    <td>ROUTING</td>
+    <td>FIRST CLASS</td>
+    <td>COACH</td>
+  </tr>
+  <tr class="text1">
+    <td>2:30 PM</td>
+    <td>5:18 PM</td>
+    <td>347</td>
+    <td>NON STOP</td>
+    <td style="color:#cc1840;">$317</td>
+    <td style="color:#cc1840;">$134</td>
+  </tr>
+  <tr class="text1" bgcolor="e3dbce">
+    <td>3:15 PM</td>
+    <td>5:08 PM</td>
+    <td>1946</td>
+    <td>2 stops</td>
+    <td style="color:#cc1840; ">$276</span></td>
+    <td style="color:#cc1840;">$205</td>
+  </tr>
+  <tr class="text1">
+    <td>4:45 PM</td>
+    <td>5:22 PM</td>
+    <td>1884</td>
+    <td>1 stop</td>
+    <td style="color:#cc1840;">$353</td>
+    <td style="color:#cc1840;">$249</td>
+  </tr>
+  <tr class="text1" bgcolor="e3dbce">
+    <td>5:30 PM</td>
+    <td>5:51 PM</td>
+    <td>633</td>
+    <td>Nonstop</td>
+    <td style="color:#cc1840;">$269</td>
+    <td style="color:#cc1840;">$232</td>
+  </tr>
+  <tr class="text1">
+    <td>6:15 PM</td>
+    <td>7:25 PM</td>
+    <td>1478</td>
+    <td>Nonstop</td>
+    <td style="color:#cc1840;">$460</td>
+    <td style="color:#cc1840;">$169</td>
+  </tr>
+</table>
+
+        </div>
+        <div id="tab3" class="tab_content">
+           <table width="740" border="0" cellspacing="0" cellpadding="0" height="250px;">
+  <tr class="text">
+    <td>DEPART</td>
+    <td>ARRIVE</td>
+    <td>FLIGHT#</td>
+    <td>ROUTING</td>
+    <td>FIRST CLASS</td>
+    <td>COACH</td>
+  </tr>
+  <tr class="text1">
+    <td>2:30 PM</td>
+    <td>5:18 PM</td>
+    <td>347</td>
+    <td>NON STOP</td>
+    <td style="color:#cc1840;">$317</td>
+    <td style="color:#cc1840;">$134</td>
+  </tr>
+  <tr class="text1" bgcolor="e3dbce">
+    <td>3:15 PM</td>
+    <td>5:08 PM</td>
+    <td>1946</td>
+    <td>2 stops</td>
+    <td style="color:#cc1840; ">$276</td>
+    <td style="color:#cc1840;">$205</td>
+  </tr>
+  <tr class="text1">
+    <td>4:45 PM</td>
+    <td>5:22 PM</td>
+    <td>1884</td>
+    <td>1 stop</td>
+    <td style="color:#cc1840;">$353</td>
+    <td style="color:#cc1840;">$249</td>
+  </tr>
+
+
+</table>
+
+
+        </div>
+        <div id="tab4" class="tab_content">
+   <table width="740" border="0" cellspacing="0" cellpadding="0" height="200px;">
+  <tr class="text">
+    <td>DEPART</td>
+    <td>ARRIVE</td>
+    <td>FLIGHT#</td>
+    <td>ROUTING</td>
+    <td>FIRST CLASS</td>
+    <td>COACH</td>
+  </tr>
+  <tr class="text1" bgcolor="e3dbce">
+    <td>2:30 PM</td>
+    <td>5:18 PM</td>
+    <td>347</td>
+    <td>NON STOP</td>
+    <td style="color:#cc1840;">$317</td>
+    <td style="color:#cc1840;">$134</td>
+  </tr>
+  <tr class="text1">
+    <td>3:15 PM</td>
+    <td>5:08 PM</td>
+    <td>1946</td>
+    <td>2 stops</td>
+    <td style="color:#cc1840; ">$276</td>
+    <td style="color:#cc1840;">$205</td>
+  </tr>
+  <tr class="text1">
+    <td>3:15 PM</td>
+    <td>5:08 PM</td>
+    <td>1946</td>
+    <td>2 stops</td>
+    <td style="color:#cc1840; ">$353</td>
+    <td style="color:#cc1840;">$205</td>
+  </tr>
+ 
+</table>
+
+</div>
+
+        <div id="tab5" class="tab_content">
+   <table width="740" border="0" cellspacing="0" cellpadding="0" height="320px;">
+  <tr class="text">
+    <td>DEPART</td>
+    <td>ARRIVE</td>
+    <td>FLIGHT#</td>
+    <td>ROUTING</td>
+    <td>FIRST CLASS</td>
+    <td>COACH</td>
+  </tr>
+  <tr class="text1" bgcolor="e3dbce">
+    <td>2:30 PM</td>
+    <td>5:18 PM</td>
+    <td>347</td>
+    <td>NON STOP</td>
+    <td style="color:#cc1840;">$317</td>
+    <td style="color:#cc1840;">$134</td>
+  </tr>
+  <tr class="text1">
+    <td>3:15 PM</td>
+    <td>5:08 PM</td>
+    <td>1946</td>
+    <td>2 stops</td>
+    <td style="color:#cc1840; ">$276</span></td>
+    <td style="color:#cc1840;">$205</td>
+  </tr>
+  <tr class="text1" bgcolor="e3dbce">
+    <td>4:45 PM</td>
+    <td>5:22 PM</td>
+    <td>1884</td>
+    <td>1 stop</td>
+    <td style="color:#cc1840;">$353</td>
+    <td style="color:#cc1840;">$249</td>
+  </tr>
+  <tr class="text1">
+    <td>5:30 PM</td>
+    <td>5:51 PM</td>
+    <td>633</td>
+    <td>Nonstop</td>
+    <td style="color:#cc1840;">$460</td>
+    <td style="color:#cc1840;">$232</td>
+  </tr>
+
+</table>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
